@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register user</title>
+    <link rel="stylesheet" href="../css/formss.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="background-image"></div>
+    <div id="main-div">
+      <div id="registration">
+        <div class="circle">
+          <img src="../images/logo.png" alt="User Image" />
+        </div>
+        <form
+          action="http://localhost/WeatherWise/Server/registerUser.php"
+          class="client-form"
+          id="registration-form"
+        >
+          <h2 class="register-title">Register user</h2>
+          <div class="form-group">
+            <label class="form-label">Enter name:</label>
+            <div class="input-icon">
+              <input
+                type="text"
+                class="form-input"
+                name="name"
+                id="registration-form-name"
+                placeholder="John Smith"
+              />
+              <span class="error" id="registration-form-name-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Enter phone number:</label>
+            <div class="input-icon">
+              <input
+                type="text"
+                class="form-input"
+                name="phone"
+                id="registration-form-phone"
+                placeholder="+000111222333"
+              />
+              <span class="error" id="registration-form-phone-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Enter email address:</label>
+            <div class="input-icon">
+              <input
+                type="text"
+                class="form-input"
+                name="email"
+                id="registration-form-email"
+                placeholder="johnsmith@email.com"
+              />
+              <span class="error" id="registration-form-email-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Enter your city:</label>
+            <div class="input-icon">
+              <input
+                type="text"
+                class="form-input"
+                name="city"
+                id="registration-form-city"
+                placeholder="Rivendell"
+              />
+              <span class="error" id="registration-form-city-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Enter your password:</label>
+            <div class="input-icon">
+              <input
+                type="password"
+                class="form-input"
+                id="registration-form-password-1"
+              />
+              <span
+                class="error"
+                id="registration-form-password-1-error"
+              ></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Enter your password again:</label>
+            <div class="input-icon">
+              <input
+                type="password"
+                class="form-input"
+                name="password"
+                id="registration-form-password-2"
+              />
+              <span
+                class="error"
+                id="registration-form-password-2-error"
+              ></span>
+            </div>
+          </div>
+          <div class="button-group">
+            <input
+              type="button"
+              class="form-button"
+              id="registration-form-cancel"
+              value="Cancel"
+            />
+            <input
+              type="button"
+              class="form-button"
+              id="registration-form-send"
+              value="Register"
+            />
+          </div>
+          <input type="hidden" name="mode" value="register-user" />
+        </form>
+      </div>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/registerUser.js"></script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+    php-apache-environment:
+        container_name: php-apache
+        build:
+            context: ./Server
+            dockerfile: Dockerfile
+        depends_on:
+            - db
+        volumes:
+            - ./Server:/var/www/html
+        ports:
+            - 8000:80
+    db:
+        container_name: db
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: weatherwise
+        ports:
+            - "3306:3306"
+    wait:
+       image: willwill/wait-for-it
+       command: -t 60 db:3306
+       depends_on:
+         - db
+    flyway:
+      image: flyway/flyway
+      volumes:
+        - ./Migrations:/flyway/sql
+      environment:
+        - FLYWAY_URL=jdbc:mysql://db:3306/weatherwise?allowPublicKeyRetrieval=true&useSSL=false
+        - FLYWAY_USER=root
+        - FLYWAY_PASSWORD=root
+        - FLYWAY_VALIDATE_MIGRATION_NAMING=true
+      command: migrate
+      depends_on:
+        - wait
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      container_name: phpmyadmin
+      environment:
+          PMA_HOST: db
+          PMA_USER: root
+          PMA_PASSWORD: root
+      ports:
+          - 8080:80
+    

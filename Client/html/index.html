@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WeatherWise</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+    <link href="../fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="site-header">
+        <div class="container">
+            <a href="index.html" class="branding">
+                <img src="../images/logo.png" alt="" class="logo">
+                <div class="logo-type">
+                    <h1 class="site-title">WeatherWise</h1>
+                    <small class="site-description">Your weather assistant</small>
+                </div>
+            </a>
+
+            <button class="dark-mode-btn dark-mode-btn--active">
+
+
+
+
+                <img src="../images/icons/sun.svg" alt="Light mode" class="dark-mode-btn__icon">
+                <img src="../images/icons/moon.svg" alt="Dark mode" class="dark-mode-btn__icon">
+            </button>
+
+            <div class="main-navigation">
+                <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+                <ul class="menu">
+                    <li class="menu-item"><a href="loginUser.html">Login</a></li>
+                    <li class="menu-item"><a href="registerUser.html">Registration</a></li>
+                </ul>
+            </div>
+
+            <div class="mobile-navigation"></div>
+        </div>
+    </div>
+
+    <div class="find-container">
+        <div class="container">
+            <div class="search-container">
+                <input type="text" id="cityInput" placeholder="Enter City Name" required>
+                <button onclick="fetchWeather()">Search</button>
+            </div>
+            <div class="forecast-container" id="forecastContainer">
+            </div class="forecast-container-item" id="forecastContainer-item">
+        </div>
+    </div>
+
+    <div class="">
+        <div class="container">
+            <div class="forecast-container">
+                <div class="today forecast pointer">
+                    <div class="forecast-header">
+                        <div class="day">Monday</div>
+                        <div class="date" id="today-forecast-date">6 Oct</div>
+                    </div>
+                    <div class="forecast-content">
+                        <div class="location" id="today-forecast-city">New York</div>
+                        <div class="degree">
+                            <div class="num" style="font-weight: 700;">
+                                <span class="degree-value" id="today-forecast-temperature">23</span><sup>o</sup>C
+                            </div>
+                            <div class="forecast-icon">
+                                <img src="" id="today-forecast-icon" alt="" width=90>
+                            </div>
+                        </div>
+                        <span class=""><img src="../images/icon-wind.png"><span
+                                class="forecast-windspeed" id="today-forecast-windspeed">18km/h</span></span>
+                        <span class=""><img src="../images/icon-umberella.png"> <span
+                                class="forecast-humidity" id="today-forecast-humidity">20%</span></span>
+                    </div>
+                </div>
+                <div class="forecast pointer">
+                    <div class="forecast-header">
+                        <div class="day" id="title-day">Monday</div>
+                    </div>
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <img src="" alt="" width=48>
+                        </div>
+                        <div class="degree"><span class="degree-value">23</span><sup>o</sup>C</div>
+                        <span class="humidity"><img class="wind-speed-icon" src="../images/icon-wind.png"><span
+                                class="forecast-windspeed">18km/h</span></span>
+                        <span class="wind-speed"><img class="wind-speed-icon" src="../images/icon-umberella.png"> <span
+                                class="forecast-humidity">20%</span></span>
+                    </div>
+                </div>
+                <div class="forecast pointer">
+                    <div class="forecast-header">
+                        <div class="day" id="title-day">Tuesday</div>
+                    </div>
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <img src="" alt="" width=48>
+                        </div>
+                        <div class="degree"><span class="degree-value">23</span><sup>o</sup>C</div>
+                        <span class="humidity"><img class="wind-speed-icon" src="../images/icon-wind.png"><span
+                                class="forecast-windspeed">18km/h</span></span>
+                        <span class="wind-speed"><img class="wind-speed-icon" src="../images/icon-umberella.png"> <span
+                                class="forecast-humidity">20%</span></span>
+                    </div>
+                </div>
+                <div class="forecast pointer">
+                    <div class="forecast-header">
+                        <div class="day">Wednesday</div>
+                    </div>
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <img src="" alt="" width=48>
+                        </div>
+                        <div class="degree"><span class="degree-value">23</span><sup>o</sup>C</div>
+                        <span class="humidity"><img class="wind-speed-icon" src="../images/icon-wind.png"><span
+                                class="forecast-windspeed">18km/h</span></span>
+                        <span class="wind-speed"><img class="wind-speed-icon" src="../images/icon-umberella.png"> <span
+                                class="forecast-humidity">20%</span></span>
+                    </div>
+                </div>
+                <div class="forecast pointer">
+                    <div class="forecast-header">
+                        <div class="day">Thursday</div>
+                    </div>
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <img src="" alt="" width=48>
+                        </div>
+                        <div class="degree"><span class="degree-value">23</span><sup>o</sup>C</div>
+                        <span class="humidity"><img class="wind-speed-icon" src="../images/icon-wind.png"><span
+                                class="forecast-windspeed">18km/h</span></span>
+                        <span class="wind-speed"><img class="wind-speed-icon" src="../images/icon-umberella.png"> <span
+                                class="forecast-humidity">20%</span></span>
+                    </div>
+                </div>
+                <div class="forecast pointer">
+                    <div class="forecast-header">
+                        <div class="day">Friday</div>
+                    </div>
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <img src="" alt="" width=48>
+                        </div>
+                        <div class="degree"><span class="degree-value">23</span><sup>o</sup>C</div>
+                        <span class="humidity"><img class="wind-speed-icon" src="../images/icon-wind.png"><span
+                                class="forecast-windspeed">18km/h</span></span>
+                        <span class="wind-speed"><img class="wind-speed-icon" src="../images/icon-umberella.png"> <span
+                                class="forecast-humidity">20%</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- подробная погода по часах -->
+    <div style="margin-top: 150px;">
+        <div class="container">
+            <div class="forecast-container" id="forecastContainerTime">
+
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61552425485324"><i
+                                class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/WeatherWise___"><i class="fa fa-twitter"></i></a>
+                        <a href="https://myaccount.google.com/u/5/?utm_source=OGB&utm_medium=app"><i
+                                class="fa fa-google-plus"></i></a>
+                        <a href="https://www.pinterest.com/WeatherWise____/"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="colophon">Copyright 2023. WeatherWise. All rights reserved</p>
+        </div>
+    </footer>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/weatherForecast.js"></script>
+    <script src="../js/lightMode.js"></script>
+    <script src="../js/logReading.js"></script>
+
+</body>
+
+</html>
